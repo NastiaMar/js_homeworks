@@ -19,19 +19,29 @@ var arr = [
         email: "dmitro.porohov@yahoo.com"
     },
     {
-        userName: "Andrii",
+        userName: "Alex",
         lastName: "",
-        email: "andrii@mail.ru"
+        email: "alex@mail.ru"
     },
     {
-        userName: "Bogdan",
-        lastName: "Ivanov",
-        email: "b.ivanov123@gmail.com"
+        userName: "Andrii",
+        lastName: "Borto",
+        email: "a.borto098@gmail.com"
     },
     {
-        userName: "Bad",
+        userName: "John",
+        lastName: "Doe",
+        email: "john.doe@gmail.com"
+    },
+    {
+        userName: "Sad",
         lastName: "One",
-        email: "bad.@gmail.com" // Не валідний
+        email: "sad.@gmail.com" 
+    },
+    {
+        userName: "Ola",
+        lastName: "Ola",
+        email: "ola.ola.@gmail.com"
     },
 ];
 var trustedEmails = [];
