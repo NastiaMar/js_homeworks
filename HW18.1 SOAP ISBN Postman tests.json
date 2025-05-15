@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "c10fd7f0-65b1-4daa-8c4d-e1500140dcde",
+		"name": "HW 18.1 Presman A.",
+		"description": "This is a collection of different SOAP APIs that are completley public and do not require any authentication, making it easier for consumers to play with and understand what APIs are all about by seeing the many different ways in which APIs can be used.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20073349",
+		"_collection_link": "https://apresman-6811.postman.co/workspace/3b4a25c5-605e-44b8-83d5-f453f70fc8d4/collection/20073349-c10fd7f0-65b1-4daa-8c4d-e1500140dcde?action=share&source=collection_link&creator=20073349"
+	},
+	"item": [
+		{
+			"name": "Book ISBN Numbers",
+			"item": [
+				{
+					"name": "Is Valid ISBN13 Number tests body and headers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Відповідь не порожня\", function () {",
+									"    pm.expect(pm.response.text()).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Містить тег IsValidISBN13\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"IsValidISBN13\");",
+									"});",
+									"",
+									"pm.test(\"ISBN валідний\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"true\");",
+									"});",
+									"",
+									"pm.test(\"Відповідь — XML\", function () {",
+									"    const ct = pm.response.headers.get(\"Content-Type\");",
+									"    pm.expect(ct).to.include(\"xml\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type присутній\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type має XML\", function () {",
+									"    const ct = pm.response.headers.get(\"Content-Type\");",
+									"    pm.expect(ct).to.include(\"text/xml\");",
+									"});",
+									"",
+									"pm.test(\"Дата відповіді існує\", function () {",
+									"    pm.response.to.have.header(\"Date\");",
+									"});",
+									"",
+									"pm.test(\"Заголовок Server присутній\", function () {",
+									"    pm.response.to.have.header(\"Server\");",
+									"});",
+									"",
+									"pm.test(\"Заголовки не порожні\", function () {",
+									"    const headers = pm.response.headers.all();",
+									"    headers.forEach(h => {",
+									"        pm.expect(h.value).to.not.be.empty;",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://webservices.daehosting.com/ISBN/IsValidISBN13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN13 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>978-1-4612-9090-2</sISBN>\n    </IsValidISBN13>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"daehosting",
+								"com"
+							],
+							"path": [
+								"services",
+								"isbnservice.wso"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Is Valid ISBN10 Number - tests body and headers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Відповідь не порожня\", function () {",
+									"    pm.expect(pm.response.text()).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test(\"Містить тег IsValidISBN10\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"IsValidISBN10\");",
+									"});",
+									"",
+									"pm.test(\"ISBN валідний\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"true\");",
+									"});",
+									"",
+									"pm.test(\"Відповідь — XML\", function () {",
+									"    const ct = pm.response.headers.get(\"Content-Type\");",
+									"    pm.expect(ct).to.include(\"xml\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type присутній\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type має XML\", function () {",
+									"    const ct = pm.response.headers.get(\"Content-Type\");",
+									"    pm.expect(ct).to.include(\"text/xml\");",
+									"});",
+									"",
+									"pm.test(\"Дата відповіді існує\", function () {",
+									"    pm.response.to.have.header(\"Date\");",
+									"});",
+									"",
+									"pm.test(\"Заголовок Server присутній\", function () {",
+									"    pm.response.to.have.header(\"Server\");",
+									"});",
+									"",
+									"pm.test(\"Заголовки не порожні\", function () {",
+									"    const headers = pm.response.headers.all();",
+									"    headers.forEach(h => {",
+									"        pm.expect(h.value).to.not.be.empty;",
+									"    });",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://webservices.daehosting.com/ISBN/IsValidISBN10",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>0-19-852663-6</sISBN>\n    </IsValidISBN10>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"daehosting",
+								"com"
+							],
+							"path": [
+								"services",
+								"isbnservice.wso"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "SOAP APIs for book ISBN numbers.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
